@@ -1,9 +1,10 @@
-export default function Title() {
+export default function Title(props) { //pass prop from 'parent' component
     return (
-        <div>
-            <h1 className="title">Im the real shady</h1>
+        //react fragment-outputs child elements as standalone parents
+        <> 
+            <h1 className="title">{props.title}</h1>
             <br />
-            <h2 className="subtitle">yes im the real shady</h2>
-        </div>
+            <h2 className="subtitle">{props.subtitle}</h2>
+        </>
     )
 }
