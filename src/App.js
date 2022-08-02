@@ -51,7 +51,7 @@ function App() {
       </div>
 
       {/*  */}
-      {showModal && <Modal handleClose={handleClose}> 
+      {showModal && <Modal handleClose={handleClose} modalConditional={true}> 
         {/* Children Props */}
         <h2>Will the real Slim Shady</h2> 
         <p>Please stand up</p>

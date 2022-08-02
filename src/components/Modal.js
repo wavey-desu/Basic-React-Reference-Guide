@@ -7,7 +7,8 @@ export default function Modal(props) {
     <div className='modal-backdrop'>
         <div className='modal'>
             {props.children}
-            <button onClick={props.handleClose}>we're gonna have a problem here</button>
+            {/* conditional class on btn if modalConditional (t/f) w/ternary operator */}
+            <button onClick={props.handleClose} className={props.modalConditional ? "modaltrue" : ""}>we're gonna have a problem here</button>
         </div>
     </div>
   ), document.body)
