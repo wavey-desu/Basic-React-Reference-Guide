@@ -3,20 +3,21 @@ import React, {useState} from 'react'
 import Title from './components/Title'
 import Modal from './components/Modal';
 import Eventlist from './components/Eventlist';
+import NewEventForm from './components/NewEventForm';
 
 function App() {
   // const [name, setName] = useState('what my name is ')
 
   const [showModal, setShowModal] = useState(true)
   const [showEvents, setShowEvents] = useState(true)
-  const [events, setEvents] = useState([
-    {title: 'what', id:1 },
-    {title: 'who ', id:2},
-    {title: 'chk chk slim shady', id:3}
-  ])
+  const [events, setEvents] = useState([])
   const subtitle = "yes im the real shady"//subtitle prop
-  console.log(showModal);
   
+  const addEvent = (e) => {
+    setEvents((prevEvents) => {
+      return [...prevEvents, e] //... is a spread operator used to merge objects & arrays
+    })
+  }
   
   const handleClick = (id)=>{
     // setName('chk chk slim shady') //setName called and passed new parameters
@@ -52,10 +53,10 @@ function App() {
 
       {/*  */}
       {showModal && <Modal handleClose={handleClose} modalConditional={true}> 
-        {/* Children Props */}
-        <h2>Will the real Slim Shady</h2> 
-        <p>Please stand up</p>
+        <NewEventForm addEvent={addEvent} handleClose={handleClose}/>
       </Modal>}
+
+      <button onClick={() => setShowModal(true)}>Add new bar</button>
     </div>    
   );
 }
